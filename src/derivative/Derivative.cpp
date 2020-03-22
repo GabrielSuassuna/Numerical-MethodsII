@@ -15,7 +15,3 @@ double Derivative::backward(double x, double deltaX, double function (double)){
 double Derivative::centered(double x, double deltaX, double function (double)){
     return (function(x+deltaX)-function(x-deltaX))/(2*deltaX);
 }
-
-Derivative::~Derivative()
-{
-}

@@ -1,19 +1,18 @@
 #include "Interpolation.hpp"
+#include "../derivative/Derivative.hpp"
+#include <iostream> 
+using namespace std;
 
-Interpolation::Interpolation(/* args */)
+Interpolation::Interpolation()
 {
 }
 
-Interpolation::~Interpolation()
-{
-}
-
-double Interpolation::deltaFunction(int degree, vector<double> pointArray, double function (double))
+double Interpolation::deltaForward(int degree, double point, double deltaX, double function (double))
 {
     if (degree == 0){
-        return function()
+        return function(point) ;
     }
-    double delta = deltaFunction(degree-1, point+1) - deltaFunction(degree-1, point)
+    return deltaForward(degree-1, point + deltaX, deltaX, function) - deltaForward(degree-1, point, deltaX, function);
 }
 
 int Interpolation::factorial(int x)
@@ -29,10 +28,20 @@ int Interpolation::factorial(int x)
     return x;
 }
 
-double Interpolation::newtonBinomial(double s, double k)
+double Interpolation::newtonBinomial(double s, double n)
 {
-    int dividend = factorial(s);
-    int divider = (factorial(k)*factorial(s-k));
+    double dividend = factorial(s);
+    double divider = (factorial(n)*factorial(s-n));
     double result = dividend/divider;
+    return result;
+}
+
+double Interpolation::interpolationForward(int degree, double point, double deltaX, double pointNumber, double function (double))
+{
+    double result = 0;
+    for (int index = 1; index <= degree; index++) {
+        result = result + (newtonBinomial(pointNumber, index) * deltaForward(index, point, deltaX, function));
+    }
+    result = result/deltaX;
     return result;
 }

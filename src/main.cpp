@@ -5,18 +5,19 @@
 using namespace std;
 
 double quadratic(double x) {
-    return pow(x, 2) + x + 3;
+    return pow(x, 3) + x + 3;
 }
 
 
 int main(int argc, char const *argv[])
 {
-    Derivative derivative = Derivative();
+    //Derivative derivative = Derivative();
+    Interpolation interpolation = Interpolation();
+    cout << "Interpolation: " << interpolation.interpolationForward(2, 1.0, 0.00001, 1, quadratic) << endl;
+    /*
     cout << "Forward: " << derivative.forward(2, 0.001, quadratic) << endl;
     cout << "Backward: " << derivative.backward(2, 0.001, quadratic) << endl;
     cout << "Centered: " << derivative.centered(2, 0.001, quadratic) << endl;
-
-    Interpolation interpolation = Interpolation();
-    cout << interpolation.newtonBinomial(2, 2) << endl;
+    */
     return 0;
 }

@@ -4,13 +4,11 @@ using namespace std;
 
 class Interpolation
 {
-private:
-    /* data */
 public:
     Interpolation(/* args */);
     int factorial(int x);
     double newtonBinomial(double s, double k);
     double newtonPolynomial();
-    double deltaFunction(int degree, int point);
-    ~Interpolation();
+    double deltaForward(int degree, double point, double deltaX, double function (double));
+    double interpolationForward(int degree, double point, double deltaX, double pointNumber, double function (double));
 };
