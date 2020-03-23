@@ -1,7 +1,8 @@
 
 # Created by https://www.gitignore.io/api/c++,opencv,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=c++,opencv,visualstudiocode
-
+.vscode
+src
 ### C++ ###
 # Prerequisites
 *.d
