@@ -50,11 +50,11 @@ int main(int argc, char** argv){
     else if(option == 2){
         for(int i = 1; i < rows -1; i++){
             for(int j = 1; j < columns -1; j++){
-                outputImage.at<uchar>(i-1,j-1) = ((int)inputImage.at<uchar>(i-1,j+1) + ((int)inputImage.at<uchar>(i,j+1)*2) + 
+                outputImage.at<uchar>(i-1,j-1) = abs(((int)inputImage.at<uchar>(i-1,j+1) + ((int)inputImage.at<uchar>(i,j+1)*2) + 
                                         (int)inputImage.at<uchar>(i+1,j+1) + ((int)inputImage.at<uchar>(i-1,j)*2) +
                                         ((int)inputImage.at<uchar>(i,j)*4)+ ((int)inputImage.at<uchar>(i+1,j)*2) + 
                                         (int)inputImage.at<uchar>(i-1,j-1) + ((int)inputImage.at<uchar>(i,j-1)*2)+
-                                        (int)inputImage.at<uchar>(i+1,j-1)) / 16;
+                                        (int)inputImage.at<uchar>(i+1,j-1)) / 16);
             }
         }
     }
@@ -62,7 +62,7 @@ int main(int argc, char** argv){
     else if(option == 3){
         for(int i = 1; i < rows-1; i++){
             for(int j = 1; j < columns-1; j++){
-                outputImage.at<uchar>(i-1,j-1) = (5*(int)inputImage.at<uchar>(i,j) - (int)inputImage.at<uchar>(i-1,j) - 
+                outputImage.at<uchar>(i-1,j-1) = abs(5*(int)inputImage.at<uchar>(i,j) - (int)inputImage.at<uchar>(i-1,j) - 
                                         (int)inputImage.at<uchar>(i+1,j) - (int)inputImage.at<uchar>(i,j-1) -
                                         (int)inputImage.at<uchar>(i,j+1));
             }
@@ -72,7 +72,7 @@ int main(int argc, char** argv){
     else if(option == 4){
         for(int i = 1; i < rows-1; i++){
             for(int j = 1; j < columns-1; j++){
-                outputImage.at<uchar>(i-1,j-1) = ((int)inputImage.at<uchar>(i-1,j) - (int)inputImage.at<uchar>(i,j-1) +
+                outputImage.at<uchar>(i-1,j-1) = abs((int)inputImage.at<uchar>(i-1,j) - (int)inputImage.at<uchar>(i,j-1) +
                                         (int)inputImage.at<uchar>(i,j+1) -(int)inputImage.at<uchar>(i+1,j));
             }
         }
@@ -95,8 +95,6 @@ int main(int argc, char** argv){
     namedWindow("Janela Incrivel", WINDOW_AUTOSIZE);
     imshow("Janela Incrivel", inputImage);
 
-
-    namedWindow("Janela Incrivel(alterada)", WINDOW_AUTOSIZE);
     imshow("Janela Incrivel (alterada)", outputImage);
 
     waitKey();
