@@ -9,6 +9,6 @@ public:
     int factorial(int x);
     double newtonBinomial(double s, double k);
     double newtonPolynomial();
-    double deltaForward(int degree, double point, double deltaX, double function (double));
-    double interpolationForward(int degree, double point, double deltaX, double pointNumber, double function (double));
+    double delta(int degree, double point, double deltaX, double function(double));
+    double interpolation(int degree, double point, double deltaX, double pointNumber, double function(double));
 };
