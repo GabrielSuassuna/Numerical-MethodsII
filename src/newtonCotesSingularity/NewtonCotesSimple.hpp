@@ -3,20 +3,21 @@
 #include <vector>
 using namespace std;
 
-class NewtonCotesSingularity {
+class NewtonCotesSimple
+{
 public:
-  NewtonCotesSingularity(/* args */);
+  NewtonCotesSimple(/* args */);
   double openTrapezeRule(double inferior, double superior, double initialPoint,
-                         double finalPoint, double function(double));
+                         double finalPoint, long double function(long double));
   double milneRule(double inferior, double superior, double initialPoint,
-                   double finalPoint, double function(double));
+                   double finalPoint, long double function(long double));
   double substituition3(double inferior, double superior, double initialPoint,
-                        double finalPoint, double function(double));
+                        double finalPoint, long double function(long double));
   double substituition4Open(double inferior, double superior,
                             double initialPoint, double finalPoint,
-                            double function(double));
+                            long double function(long double));
   vector<double> integralPartitions(double inferior, double superior,
                                     double initialPoint, double finalPoint,
                                     double epsilon, int degree,
-                                    double function(double));
+                                    long double function(long double));
 };
